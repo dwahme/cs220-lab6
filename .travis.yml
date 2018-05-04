@@ -1,21 +1,6 @@
 language: c
 
-hello:build:
-    stage: build
-    script:
-      - make -C hello clean all
-    only:
-      - master
-    artifacts:
-      expire_in: 1 hour
-      paths:
-        - hello/hello
-
-hello:test:
-    stage: test
-    script:
-      - hello/hello
-    only:
-      - master
-    dependencies:
-      - hello:build
+script:
+    - cd hello
+    - make
+    - ./hello
